@@ -23,8 +23,10 @@ and what you should write is the sayHi function that makes the code above work,
 // 1. Write a function called first that returns the first item of the array using a callback function
 
   // Code Here
+function first(listOfNames, returnName) {
+  return returnName(listOfNames[0]);
+}
 
-  
 var names = ['Tyler', 'Cahlan', 'Ryan', 'Colt', 'Tyler', 'Blaine', 'Cahlan'];
 first(names, function(firstName){
   console.log('The first name in names is ' + firstName)
@@ -35,6 +37,9 @@ first(names, function(firstName){
 // 2. Write a function called last which returns the last item of the array using a callback function.
 
   //Code Here
+function last(listOfNames, returnedName){
+  return returnedName(listOfNames[listOfNames.length - 1]);
+}
 
 last(names, function(lastName){
   console.log('The last name in names is ' + lastName);
@@ -46,7 +51,9 @@ last(names, function(lastName){
 
   //Code Here
 
-
+function multiply(num1, num2, answer){
+  return answer(num1 * num2);
+}
 multiply(4, 3, function(answer){
   console.log('The answer is ' + answer); //should console.log 12
 })
@@ -57,6 +64,16 @@ multiply(4, 3, function(answer){
 // If it does, return true using the callback, if not return false.
 
   //Code Here 
+  function contains(listOfNames, name, answer){
+  var isInTheArray = false;
+  listOfNames.forEach(function(element){
+    if(element === name){
+      isInTheArray = true
+    } 
+  }); 
+  console.log(isInTheArray)
+  return answer(isInTheArray);
+}
 
 contains(names, 'Colt', function(result){
   if(result === true){
